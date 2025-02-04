@@ -5,7 +5,7 @@ import { DefaultLayout } from '~/components/Layout'
 
 function App() {
     return (
-        <Router>
+        <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
             <div className="App">
                 <Routes>
                     {publicRoutes.map((route, index) => {
