@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleXmark,
     faSpinner,
-    faMagnifyingGlass,
     faEllipsisVertical,
     faEarthAsia,
     faUser,
@@ -23,7 +22,7 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 import { faCircleQuestion, faKeyboard } from '@fortawesome/free-regular-svg-icons';
-import { ActivityIcon, MessagesIcon, UploadIcon } from '~/components/Icons';
+import { InboxIcon, MessageIcon, SearchIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
@@ -128,10 +127,11 @@ function Header() {
                         <button className={cx('clear')}>
                             <FontAwesomeIcon className={cx('clear-icon')} icon={faCircleXmark} />
                         </button>
+
                         <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon className={cx('search-btn-icon')} icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -139,21 +139,22 @@ function Header() {
                 <div className={cx('actions')}>
                     {currentUser ? (
                         <>
-                            <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
+                            <Tippy delay={[0, 50]} content="Upload video" placement="bottom">
                                 <button className={cx('actions-btn')}>
                                     <UploadIcon />
                                 </button>
                             </Tippy>
 
-                            <Tippy delay={[0, 200]} content="Messages" placement="bottom">
+                            <Tippy delay={[0, 50]} content="Message" placement="bottom">
                                 <button className={cx('actions-btn')}>
-                                    <MessagesIcon />
+                                    <MessageIcon />
                                 </button>
                             </Tippy>
 
-                            <Tippy delay={[0, 200]} content="Activity" placement="bottom">
+                            <Tippy delay={[0, 50]} content="Inbox" placement="bottom">
                                 <button className={cx('actions-btn')}>
-                                    <ActivityIcon />
+                                    <InboxIcon />
+                                    <span className={cx('badge')}>12</span>
                                 </button>
                             </Tippy>
                         </>
